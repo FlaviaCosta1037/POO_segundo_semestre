@@ -11,9 +11,17 @@ public class exe04 {
         Locale.setDefault(Locale.US);
         Scanner in = new Scanner(System.in);
 
-        int vet[] = new int[3];
+        float vet[] = new float[3];
+
+        float media = mediaAritimetica(vet);
+        mostrarResultado(media);
+
+    }
+
+    public static float mediaAritimetica(float[] vet) {
+        Scanner in = new Scanner(System.in);
         int numero;
-        int soma = 0;
+        float soma = 0;
         float media = 0;
 
         for (int i = 0; i < vet.length; i++) {
@@ -23,9 +31,12 @@ public class exe04 {
             soma = soma + vet[i];
             media = soma / vet.length;
         }
-        System.out.println(soma);
-        System.out.println(media);
 
+        return media;
+    }
+
+    public static void mostrarResultado(float value) {
+        System.out.println(value);
     }
 
 }

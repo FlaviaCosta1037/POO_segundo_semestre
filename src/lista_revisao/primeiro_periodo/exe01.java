@@ -17,6 +17,5 @@ public class exe01 {
             vetB[i] = vetA[i] * 3;
             System.out.print(Arrays.asList(vetB[i]));
         }
-
     }
 }
