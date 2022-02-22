@@ -2,6 +2,7 @@ package lista_revisao.primeiro_periodo;
 //Escreva um programa que receba do usuário um array de
 // números e devolva a posição onde se encontra o maior valor do array.
 
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ public class exe03 {
 
         int numero;
         int maior = 0;
+        int index = 0;
         int vetNumeros[] = new int[3];
 
 
@@ -22,8 +24,12 @@ public class exe03 {
 
             if (vetNumeros[i] > maior) {
                 maior = vetNumeros[i];
+                index = i;
+
             }
+
         }
-        System.out.println("O maior valor é: " + maior);
+        System.out.println("Posição do maior vetor: " + index);
+        System.out.println("O maior valor é : " + maior);
     }
 }
