@@ -32,8 +32,7 @@ public class exe02 {
         return resultado;
     }
 
-
-        public static void mostrarResultado ( int valor){
-            System.out.println(valor);
-        }
+    public static void mostrarResultado(int valor) {
+        System.out.println(valor);
     }
+}
