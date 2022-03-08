@@ -23,10 +23,7 @@ public class calculo_imc {
         pessoa.sexo = in.next();
 
         System.out.println("Resultado\n======================");
-        String nome = "";
-        Integer idade = 0;
-        double imc = 0;
-        pessoa.imprimeDados(nome, idade, imc);
+        pessoa.imprimeDados();
         System.out.println("\n======================");
     }
 }

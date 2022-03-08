@@ -11,7 +11,7 @@ public class Pessoa {
         return peso / ((altura * altura));
     }
 
-    public void imprimeDados(String nome, Integer idade, Double imc){
+    public void imprimeDados(){
         System.out.println("Nome: " + this.nome);
         System.out.println("Idade: " + this.idade);
 
@@ -25,11 +25,5 @@ public class Pessoa {
             System.out.print("Obesidade\n");
         }
         System.out.printf("Imc: %.2f" , this.calculaImc());
-    }
-
-    public String toString(){
-        return "Nome: " + nome + "\n" + "Idade: " + String.format("%.d\n", idade) +
-                "Peso: " + String.format("%.f\n", peso) + "Sexo: " + sexo + "IMC: " +
-                String.format("%.2f\n", calculaImc());
     }
 }
