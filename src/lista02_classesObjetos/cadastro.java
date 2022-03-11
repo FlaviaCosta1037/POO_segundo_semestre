@@ -25,7 +25,7 @@ public class cadastro {
             String estudantesNome = estudantes[i].nome;
         }
 
-        //Interação com o usuário
+        //Interação com o usuário..
         System.out.println("\nInforme o numero do um aluno para editar: ");
         int aluno = in.nextInt();
 
