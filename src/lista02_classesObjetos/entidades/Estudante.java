@@ -1,43 +1,51 @@
 package lista02_classesObjetos.entidades;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Estudante {
     Scanner in = new Scanner(System.in);
 
-    public String nome[] = {"Flávia","Roberto","Francisco"};
-    public int idade[] = {20, 50, 40};
-    public String curso[] = {"Ciencias da Computação", "Biologia", "Direito"};
-    public int matricula[] = {2020141, 303052, 408256};
+    //Atributos do objeto Estudante
+    public String nome;
+    public int idade;
+    public String curso;
+    public int matricula;
 
 
-    public void cadEstudantes(String cadastro[]){
-        for (int i = 0; i < nome.length; i++){
-            String nomeA = nome[i];
-            int idadeA = idade[i];
-            String cursoA = curso[i];
-            int matriculaA = matricula[i];
+    //Construtor do objeto
+    public Estudante(String nome, int idade, String curso, int matricula) {
+        this.nome = nome;
+        this.idade = idade;
+        this.curso = curso;
+        this.matricula = matricula;
+    }
 
-            System.out.printf("\nNome:%s\n Idade:%d\n Curso:%s\n Matricula:%s\n",nomeA ,idadeA ,cursoA ,matriculaA);
+    //Estrutura de decisão para escolher o aluno que será editado
+    public void escolhaAluno(int nomeAluno) {
+        if (nomeAluno == 1) {
+
+        } else if (nomeAluno == 2) {
+
+        } else if (nomeAluno == 3) {
 
         }
     }
-    /*public void opcao(char escolha){
-        switch (escolha){
-            case 1:
-                escolherNome();
-                break;
-            case 2:
-                escolherIdade();
-                break;
-            case 3:
-                escolherCurso();
-            case 4:
-                escolherMatricula();
-                break;
+
+    //Estrutura de decisão que decidirá qual atributo será editado
+    public void opcao(int escolha) {
+        if(escolha == 1){
+            escolherNome();
+        }else if(escolha == 2){
+            escolherIdade();
+        }else if(escolha == 3){
+            escolherCurso();
+        } else if(escolha == 4){
+            escolherMatricula();
         }
     }
 
+    //Método para modificar o nome do aluno
     public void escolherNome() {
         System.out.println("Informe outro nome: ");
         String nomeAtual = this.nome;
@@ -46,31 +54,33 @@ public class Estudante {
 
     }
 
+    //Método para modificar a idade do aluno
     public void escolherIdade() {
         System.out.println("Informe a idade: ");
         int idadeAtual = this.idade;
         this.idade = in.nextInt();
-        System.out.println("Nome alterado: " + this.idade);
+        System.out.println("Idade alterada: " + this.idade);
 
     }
 
+    //Método para modificar o curso do aluno
     public void escolherCurso() {
         System.out.println("Informe o novo curso: ");
         String cursoAtual = this.curso;
         this.curso = in.nextLine();
-        System.out.println("Nome alterado: " + this.curso);
+        System.out.println("Curso alterado: " + this.curso);
 
     }
-
+    //Método para modificar a matricula do aluno
     public void escolherMatricula() {
         System.out.println("Informe a nova matricula: ");
         int matriculaAtual = this.matricula;
         this.matricula = in.nextInt();
-        System.out.println("Nome alterado: " + this.matricula);
+        System.out.println("Matricula alterada: " + this.matricula);
 
     }
 
     public void imprimir() {
         System.out.printf("Nome: %s\nIdade: %d\nCurso: %s\nMatrícula: %d\n-----\n", this.nome, this.idade, this.curso, this.matricula);
-    }*/
+    }
 }

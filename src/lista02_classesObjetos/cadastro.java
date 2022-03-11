@@ -6,45 +6,43 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class cadastro {
-    public static void main(String[]args) {
+    public static void main(String[] args) {
         Locale.setDefault(Locale.US);
-                Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
-                Estudante estudante = new Estudante();
+        Estudante[] estudantes = new Estudante[3]; //Chamada do objeto
 
-                System.out.println("Grupo de alunos");
-                System.out.println("----------------");
+        //Chamada do construtor
+        estudantes[0] = new Estudante("Flavia", 20, "CC", 25021);
+        estudantes[1] = new Estudante("Paty", 18, "Odonto", 25022);
+        estudantes[2] = new Estudante("Fred", 45, "Medico", 25023);
 
-                estudante.cadEstudantes(estudante.nome);
-
-                System.out.println("Informe o nome de um aluno para editar: ");
-                String aluno = in.nextLine();
-
-
-            }
+        //Laço for para ler o nome dos estudantes
+        System.out.println("Grupo de alunos");
+        System.out.println("----------------");
+        for (int i = 0; i < estudantes.length; i++) {
+            System.out.printf("\n(%d)" + estudantes[i].nome, i);
+            String estudantesNome = estudantes[i].nome;
         }
 
+        //Interação com o usuário
+        System.out.println("\nInforme o numero do um aluno para editar: ");
+        int aluno = in.nextInt();
 
-        /*System.out.printf("Alunos:\n========\n");
-        for (int i = 0; i < estudante.length; i++) {
-            System.out.printf("(%d) %S\n", i + 1, estudante[i].nome);
-        }
-        System.out.printf("Informe o aluno que será editado: ");
-        int selecione = in.nextInt();
+        //Chamada do método escolha o aluno que será editado
+        Estudante escolhaAluno = estudantes[aluno];
+        escolhaAluno.imprimir();
 
-        if(selecione == 1){
-            System.out.printf(" Nome: %s\n Idade: %d\n Curso: %s\n Matricula: %d\n ",estudante[0].nome, estudante[0].idade,
-                    estudante[0].curso, estudante[0].matricula);
+        //Interação com o usuário de qual atributo será alterado.
+        System.out.println("\nInforme qual dado deseja editar: (1, 2, 3, 4)");
+        int alterarDado = in.nextInt();
+        escolhaAluno.opcao(alterarDado);
+        escolhaAluno.imprimir();
 
-        } else if(selecione == 2){
-            System.out.printf(" Nome: %s\n Idade: %d\n Curso: %s\n Matricula: %d\n ",estudante[1].nome, estudante[1].idade,
-                    estudante[1].curso, estudante[1].matricula);
+    }
+}
 
-        }else if(selecione == 3){
-            System.out.printf(" Nome: %s\n Idade: %d\n Curso: %s\n Matricula: %d\n ",estudante[2].nome, estudante[2].idade,
-                    estudante[2].curso, estudante[2].matricula);
 
-        }*/
 
 
 
