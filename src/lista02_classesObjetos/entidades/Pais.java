@@ -1,32 +1,46 @@
 package lista02_classesObjetos.entidades;
 
 public class Pais {
-    public String nome;
+    public String nomePais;
     public String capital;
+    public String estados;
 
-    public Pais(String nome, String capital) {
-        this.nome = nome;
+    public Pais(String nomePais, String capital, String estados) {
+        this.nomePais = nomePais;
         this.capital = capital;
+        this.estados = estados;
     }
 
-    public int obterQuantidadeEstados(){
-        int quantidadeA = 0;
-        int quantidadeB = 0;
-        int resultado = 0;
+    public static class Estado {
+        public String capitalEstado;
+        public String cidades;
+        public Double dimensao;
 
-        String qtdEstados[] = {};
-        for(int c = 0; c < qtdEstados.length; c++){
-            quantidadeA = c;
-            for(int j = 0; j < qtdEstados.length; j++){
-                quantidadeB = j;
-            }
-            resultado = quantidadeA + quantidadeB;
+        public Estado (String capitalEstado, String cidades, Double dimensao) {
+            this.capitalEstado = capitalEstado;
+            this.cidades = cidades;
+            this.dimensao = dimensao;
         }
-        return resultado;
-  }
 
-  public void print(int quantidadeTotal){
-      System.out.println(this.obterQuantidadeEstados());
-  }
+        public void imprimirCidades(){
+            System.out.printf("%s ", this.cidades);
+        }
 
+        public void imprimirDimensoes(){
+            System.out.printf("Dimensão %f ", this.dimensao);
+        }
+
+        public int obterQuantidadeCidades(){
+            return  cidades.length();
+        }
+
+        public void imprimirQtdCidades(){
+            System.out.println(obterQuantidadeCidades());
+        }
+
+
+    }
+    public void imprimirPais(){
+        System.out.println("Dados do País\nNome: " + this.nomePais + "\nCapital do país: " + this.capital + "\nEstado: " + this.estados);
+    }
 }
