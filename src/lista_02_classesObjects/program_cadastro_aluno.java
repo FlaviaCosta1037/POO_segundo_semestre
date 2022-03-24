@@ -17,11 +17,16 @@ public class program_cadastro_aluno {
         for (int i = 0; i < estudantes.length; i++) {
             String estudante = nomes[i];
             System.out.printf("%d - %s\n", i+1, estudante);
+
+            Estudante estudante1 = new Estudante(nomes[0], 20, "CC", 202020);
+            Estudante estudante2 = new Estudante(nomes[1], 25, "CC", 202022);
+            Estudante estudante3 = new Estudante(nomes[2], 28, "CC", 202024);
         }
         System.out.println("Informe o numero do estudante que será alterado: ");
         String escolha = in.next();
 
         Estudante estudante = new Estudante(escolha);
+
         estudante.escolhaAluno();
     }
 }
