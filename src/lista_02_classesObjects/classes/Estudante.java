@@ -49,28 +49,56 @@ public class Estudante {
         this.matricula = matricula;
     }
 
-    public String escolhaAluno(){
+    public String escolhaAluno() {
         String escolha = "";
-        String aluno;
+        String nome;
+        int idade;
+        int matricula;
+        String curso;
 
-        if(escolha == this.nome){
-            aluno = this.nome;
-        }else if(escolha == this.nome){
-            aluno = this.nome;
-        }else{
-            aluno = this.nome;
+        if (escolha == this.nome) {
+            nome = this.nome;
+            idade = this.idade;
+            matricula = this.matricula;
+            curso = this.curso;
+
+
+        } else if (escolha == this.nome) {
+            nome = this.nome;
+            idade = this.idade;
+            matricula = this.matricula;
+            curso = this.curso;
+        } else {
+            nome = this.nome;
+            idade = this.idade;
+            matricula = this.matricula;
+            curso = this.curso;
         }
-        System.out.printf("Nome: %s\n Idade: %d\n Curso: %s\n Matricula: %d ", aluno, this.idade, this.curso, this.matricula);
 
-        return aluno;
+        return nome;
+    }
+    public void mostraDadosAluno() {
+        System.out.printf("Nome: %s \nIdade:%d anos\n Curso:%s \n Matricula: %d\n", this.nome, this.idade, this.curso, this.matricula);
+
+    }
+    public void alteraDado() {
+        int opcao = 0;
+
+        switch (opcao){
+            case 1:
+                nome = this.nome;
+                break;
+            case 2:
+                idade = this.idade;
+                break;
+            case 3:
+                curso = this.curso;
+                break;
+            case 4:
+                matricula = this.matricula;
+                break;
+        }
     }
 
-    public void mostraDadosAluno(){
-
-    }
-
-    /*public String alteraAluno(){
-        String alunoAntigo = escolhaAluno();
-
-    }*/
 }
+
