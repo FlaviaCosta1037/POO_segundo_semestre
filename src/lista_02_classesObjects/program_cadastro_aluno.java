@@ -11,43 +11,43 @@ public class program_cadastro_aluno {
         Locale.setDefault(Locale.US);
         Scanner in = new Scanner(System.in);
 
-        String[] nomes = {"Flavia", "Rodrigo", "José"};
-        Estudante[] estudantes = new Estudante[nomes.length];
+        Estudante[] estudantes = new Estudante[3];
+
+        estudantes[0] = new Estudante("Flavia", 20, "CC", 202020);
+        estudantes[1] = new Estudante("Paty", 25, "ADS", 202022);
+        estudantes[2] = new Estudante("Roberto", 28, "Direito", 202024);
 
         System.out.println("====Lista dos estudantes====");
         for (int i = 0; i < estudantes.length; i++) {
-            String estudante = nomes[i];
-            System.out.printf("%d - %s\n", i + 1, estudante);
+            System.out.printf("%s\n", estudantes[i].getNome());
         }
         System.out.println("Informe o nome do estudante que será alterado: ");
         String escolha = in.next();
 
-        Estudante estudante1 = new Estudante(escolha, 20, "CC", 202020);
-        Estudante estudante2 = new Estudante(escolha, 25, "ADS", 202022);
-        Estudante estudante3 = new Estudante(escolha, 28, "Direito", 202024);
+        Estudante alunoEscolhido = new Estudante(escolha);
 
-        Estudante estudanteEscolhido = new Estudante(escolha);
-        estudanteEscolhido.escolhaAluno();
-
-        System.out.println("Informe o dado cadastral que deverá ser alterado: ");
-        System.out.printf("(1) - Nome\n(2) - Idade\n(3) - Curso\n(4) - Matricula\nDigite: ");
+        System.out.printf("Informe a opção que deverá ser alterada: 1 - Nome, 2 - idade, 3 - curso, 4 - matricula\n");
         int opcao = in.nextInt();
 
-        Estudante escolhaOpcao = new Estudante(escolha);
-        escolhaOpcao.alteraDado();
+        Estudante escolhaAluno = estudantes[opcao];
+        escolhaAluno.mostraDadosAluno();
 
-        System.out.println("Informe um novo valor para este campo: ");
-        //escolhaOpcao = in.nextInt()
+        System.out.printf("Informe o novo valor que deseja substituir: ");
+        int editarDado = in.nextInt();
+        escolhaAluno.dadosAlterados(editarDado);
+        escolhaAluno.mostraDadosAluno();
 
-        if (escolha == estudante1.getNome()) {
+
+
+
+
+        /*if (escolha == estudante1.getNome()) {
             estudante1.mostraDadosAluno();
         } else if (escolha == estudante2.getNome()) {
             estudante2.mostraDadosAluno();
         } else if (escolha == estudante3.getNome()) {
             estudante3.mostraDadosAluno();
-        }
-
-
+        }*/
 
 
     }

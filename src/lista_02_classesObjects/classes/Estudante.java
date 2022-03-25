@@ -1,6 +1,9 @@
 package lista_02_classesObjects.classes;
 
+import java.util.Scanner;
+
 public class Estudante {
+    Scanner in = new Scanner(System.in);
     private String nome;
     private int idade;
     private String curso;
@@ -81,22 +84,45 @@ public class Estudante {
         System.out.printf("Nome: %s \nIdade:%d anos\n Curso:%s \n Matricula: %d\n", this.nome, this.idade, this.curso, this.matricula);
 
     }
-    public void alteraDado() {
-        int opcao = 0;
+    public void alterarNome() {
+        String nomeAntigo = this.nome;
+        System.out.printf("Informe outro nome: ");
+        this.nome = in.nextLine();
+        System.out.println("Novo nome: " + this.nome);
 
+    }
+    public void alterarIdade() {
+        int idadeAntiga = this.idade;
+        System.out.printf("Informe outra idade: ");
+        this.idade = in.nextInt();
+        System.out.println("Nova Idade: " + this.idade);
+
+    }
+    public void alterarCurso() {
+        String cursoAntigo = this.curso;
+        System.out.printf("Informe o novo curso: ");
+        this.curso = in.nextLine();
+        System.out.println("Novo curso: " + this.curso);
+
+    }
+    public void alteraMatricula() {
+        int matriculaAntiga = this.matricula;
+        System.out.printf("Informe a nova matricula: ");
+        this.matricula = in.nextInt();
+        System.out.println("Nova matricula: " + this.matricula);
+
+    }
+    public void dadosAlterados(int opte){
+        int opcao = 0;
         switch (opcao){
             case 1:
-                nome = this.nome;
-                break;
+                alterarNome();
             case 2:
-                idade = this.idade;
-                break;
+                alterarIdade();
             case 3:
-                curso = this.curso;
-                break;
+                alterarCurso();
             case 4:
-                matricula = this.matricula;
-                break;
+                alteraMatricula();
         }
     }
 
