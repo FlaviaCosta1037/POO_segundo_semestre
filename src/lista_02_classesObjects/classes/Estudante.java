@@ -1,7 +1,7 @@
 package lista_02_classesObjects.classes;
 
 import java.util.Scanner;
-
+//Criada Classe private.
 public class Estudante {
     Scanner in = new Scanner(System.in);
     private String nome;
@@ -9,6 +9,7 @@ public class Estudante {
     private String curso;
     private int matricula;
 
+    //Chamada dos metodos getters and setters.
     public String getNome() {
         return nome;
     }
@@ -41,10 +42,12 @@ public class Estudante {
         this.matricula = matricula;
     }
 
+    //Criado construtor de nome para auxilar na instanciação na main.
     public Estudante(String nome) {
         this.nome = nome;
     }
 
+    //Construtor geral
     public Estudante(String nome, int idade, String curso, int matricula) {
         this.nome = nome;
         this.idade = idade;
@@ -52,79 +55,55 @@ public class Estudante {
         this.matricula = matricula;
     }
 
-    public String escolhaAluno() {
-        String escolha = "";
-        String nome;
-        int idade;
-        int matricula;
-        String curso;
-
-        if (escolha == this.nome) {
-            nome = this.nome;
-            idade = this.idade;
-            matricula = this.matricula;
-            curso = this.curso;
-
-
-        } else if (escolha == this.nome) {
-            nome = this.nome;
-            idade = this.idade;
-            matricula = this.matricula;
-            curso = this.curso;
-        } else {
-            nome = this.nome;
-            idade = this.idade;
-            matricula = this.matricula;
-            curso = this.curso;
-        }
-
-        return nome;
+    //Metodos para imprimir os dados individuais do estudante.
+    public void mostrarAluno() {
+        System.out.printf("Nome alterado: %s \n", this.nome);
     }
+    public void mostrarNovaIdade(){
+        System.out.printf("Nova idade: %d \n", this.idade);
+    }
+    public void mostrarNovoCurso() {
+        System.out.printf("Novo curso: %s \n", this.curso);
+    }
+    public void mostrarNovaMatricula(){
+        System.out.printf("Nova matricula: %s \n", this.matricula);
+    }
+
+    //Metodo para imprimir todos os dados caso necessário.
     public void mostraDadosAluno() {
         System.out.printf("Nome: %s \nIdade:%d anos\n Curso:%s \n Matricula: %d\n", this.nome, this.idade, this.curso, this.matricula);
-
     }
-    public void alterarNome() {
+
+    //Metodos para guardar guardar o nome antigo e obter o novo.
+    public void alteraNome() {
         String nomeAntigo = this.nome;
-        System.out.printf("Informe outro nome: ");
-        this.nome = in.nextLine();
-        System.out.println("Novo nome: " + this.nome);
-
+        String novoNome;
+        System.out.println("Informe um novo nome: ");
+        novoNome = in.nextLine();
+        this.nome = novoNome;
     }
-    public void alterarIdade() {
+
+    public void alteraIdade() {
         int idadeAntiga = this.idade;
-        System.out.printf("Informe outra idade: ");
-        this.idade = in.nextInt();
-        System.out.println("Nova Idade: " + this.idade);
-
+        int novaIdade;
+        System.out.println("Informe uma nova idade: ");
+        novaIdade = in.nextInt();
+        this.idade = novaIdade;
     }
-    public void alterarCurso() {
+
+    public void alteraCurso() {
         String cursoAntigo = this.curso;
-        System.out.printf("Informe o novo curso: ");
-        this.curso = in.nextLine();
-        System.out.println("Novo curso: " + this.curso);
+        String novoCurso;
+        System.out.println("Informe um novo curso: ");
+        novoCurso = in.nextLine();
+        this.curso = novoCurso;
 
     }
     public void alteraMatricula() {
         int matriculaAntiga = this.matricula;
-        System.out.printf("Informe a nova matricula: ");
-        this.matricula = in.nextInt();
-        System.out.println("Nova matricula: " + this.matricula);
-
+        int novaMatricula;
+        System.out.println("Informe uma nova matricula: ");
+        novaMatricula = in.nextInt();
+        this.matricula = novaMatricula;
     }
-    public void dadosAlterados(int opte){
-        int opcao = 0;
-        switch (opcao){
-            case 1:
-                alterarNome();
-            case 2:
-                alterarIdade();
-            case 3:
-                alterarCurso();
-            case 4:
-                alteraMatricula();
-        }
-    }
-
 }
-
