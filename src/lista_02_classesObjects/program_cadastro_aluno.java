@@ -22,7 +22,7 @@ public class program_cadastro_aluno {
         //Laço for para ler o nome dos estudantes.
         System.out.println("Lista de estudantes:");
         for (int i = 0; i < estudantes.length; i++) {
-            System.out.println(estudantes[i].getNome());
+            System.out.println(estudantes[i).getNome());
         }
 
         //Interação com o usuário para obter a informação qual cadastro de aluno sofrerá alteração
@@ -44,37 +44,19 @@ public class program_cadastro_aluno {
         Estudante nomeAluno = new Estudante(nome);
         nomeAluno.mostrarAluno();
 
+        int idade, matricula; String curso;
+        for (int i = 0; i < estudantes.length; i++){
+            idade = estudantes[i].getIdade();
+            curso = estudantes[i].getCurso();
+            matricula = estudantes[i].getMatricula();
+        }
         //Interação com usuário para definir qual campo será editado.
         System.out.println("Informe o dado cadastral que deverá ser alterado: ");
         System.out.printf("(1) - Nome\n(2) - Idade\n(3) - Curso\n(4) - Matricula\nDigite: ");
         int opcao = in.nextInt();
 
-        //Laço de for com repetição para alteração do campo editado e impressão dos dados.
-        for (int i = 0; i < escolha; i++){
-            if(opcao == 1){
-                nomeAluno.alteraNome();
-                System.out.println("O campo alterado foi NOME");
-                System.out.println("Nome antigo: " + estudantes[i].getNome());
-                nomeAluno.mostrarAluno();
-            }else if(opcao == 2){
-                nomeAluno.alteraIdade();
-                System.out.println("O campo alterado foi IDADE");
-                System.out.println("Idade antiga: " + estudantes[i].getIdade());
-                nomeAluno.mostrarNovaIdade();
-            }else if(opcao ==3){
-                nomeAluno.alteraCurso();
-                System.out.println("O campo alterado foi CURSO");
-                System.out.println("Curso antigo: " + estudantes[i].getCurso());
-                nomeAluno.mostrarNovoCurso();
-            }else if(opcao == 4){
-                nomeAluno.alteraMatricula();
-                System.out.println("O campo alterado foi MATRICULA");
-                System.out.println("Matricula antiga: " + estudantes[i].getMatricula());
-                nomeAluno.mostrarNovaMatricula();
+        nomeAluno.opcao(opcao);
 
-            }
-
-        }
     }
 }
 

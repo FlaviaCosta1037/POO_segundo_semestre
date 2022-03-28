@@ -2,41 +2,12 @@ package lista_02_classesObjects.classes;
 
 import java.util.Scanner;
 //Criada Classe private.
+
 public class Estudante {
-    Scanner in = new Scanner(System.in);
-    private String nome;
-    private int idade;
-    private String curso;
-    private int matricula;
-
-    //Chamada dos metodos getters and setters.
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getCurso() {
-        return curso;
-    }
-
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
-    public int getMatricula() {
-        return matricula;
-    }
+    public String nome;
+    public int idade;
+    public String curso;
+    public int matricula;
 
     public void setMatricula(int matricula) {
         this.matricula = matricula;
@@ -56,54 +27,63 @@ public class Estudante {
     }
 
     //Metodos para imprimir os dados individuais do estudante.
-    public void mostrarAluno() {
-        System.out.printf("Nome alterado: %s \n", this.nome);
-    }
-    public void mostrarNovaIdade(){
-        System.out.printf("Nova idade: %d \n", this.idade);
-    }
-    public void mostrarNovoCurso() {
-        System.out.printf("Novo curso: %s \n", this.curso);
-    }
-    public void mostrarNovaMatricula(){
-        System.out.printf("Nova matricula: %s \n", this.matricula);
-    }
 
-    //Metodo para imprimir todos os dados caso necessário.
-    public void mostraDadosAluno() {
-        System.out.printf("Nome: %s \nIdade:%d anos\n Curso:%s \n Matricula: %d\n", this.nome, this.idade, this.curso, this.matricula);
+    public void mostrarAluno() {System.out.printf("Novo nome: %s \n", this.nome);}
+    public void mostrarNovaIdade(){System.out.printf("Nova idade: %d \n", this.idade);}
+    public void mostrarNovoCurso() {System.out.printf("Novo curso: %s \n", this.curso);}
+    public void mostrarNovaMatricula(){System.out.printf("Nova matricula: %s \n", this.matricula);}
+    Scanner in = new Scanner(System.in);
+    public void opcao(int escolha){
+        if (escolha == 1){
+            System.out.println("O campo alterado foi NOME");
+            alteraNome();
+
+        }else if(escolha == 2){
+            System.out.println("O campo alterado foi IDADE");
+            alteraIdade();
+
+        }else if(escolha == 3){
+            System.out.println("O campo alterado foi CURSO");
+            alteraCurso();
+
+        }else if(escolha == 4){
+            System.out.println("O campo alterado foi MATRICULA");
+            alteraMatricula();
+
+        }
     }
 
     //Metodos para guardar guardar o nome antigo e obter o novo.
     public void alteraNome() {
         String nomeAntigo = this.nome;
-        String novoNome;
         System.out.println("Informe um novo nome: ");
-        novoNome = in.nextLine();
-        this.nome = novoNome;
-    }
+        String novoNome = in.nextLine();
+        System.out.println("O nome antigo é " + nomeAntigo);
+        System.out.println("O novo nome é " + novoNome);
 
+    }
     public void alteraIdade() {
         int idadeAntiga = this.idade;
-        int novaIdade;
         System.out.println("Informe uma nova idade: ");
-        novaIdade = in.nextInt();
-        this.idade = novaIdade;
-    }
+        int novaIdade = in.nextInt();
+        System.out.println("A idade antiga é " + idadeAntiga);
+        System.out.println("A nova idade é " + novaIdade);
 
+    }
     public void alteraCurso() {
         String cursoAntigo = this.curso;
-        String novoCurso;
         System.out.println("Informe um novo curso: ");
-        novoCurso = in.nextLine();
-        this.curso = novoCurso;
+        String novoCurso = in.nextLine();
+        System.out.println("O antigo curso é " + cursoAntigo);
+        System.out.println("O novo curso é " + novoCurso);
 
     }
     public void alteraMatricula() {
-        int matriculaAntiga = this.matricula;
-        int novaMatricula;
+        int antigaMatricula = this.matricula;
         System.out.println("Informe uma nova matricula: ");
-        novaMatricula = in.nextInt();
-        this.matricula = novaMatricula;
+        int novaMatricula = in.nextInt();
+        System.out.println("A idade antiga é " + antigaMatricula);
+        System.out.println("A nova matricula é " + novaMatricula);
+
     }
 }
