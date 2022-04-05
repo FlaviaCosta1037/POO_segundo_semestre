@@ -3,13 +3,10 @@ package lista02_classesObjetos;
 import lista02_classesObjetos.entidades.Estado;
 import lista02_classesObjetos.entidades.Pais;
 
-import javax.sound.midi.Soundbank;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class programa_pais {
-
-
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner in = new Scanner(System.in);
@@ -37,8 +34,17 @@ public class programa_pais {
         };
 
         Pais pais = new Pais(nomePais, capitalpais, estados);
+        System.out.println(pais);
+        System.out.println("Quantidade de cidades: " + pais.obterQuantidadeCidades());
+        System.out.println(pais.obterMaiorEstado());
 
+        Pais paisBrasil = new Pais(nomePais, capitalpais, estados);
 
+        //Instanciar um novo país para comparação
+        Pais paisEspanha = new Pais("Espanha", "Madrid",estados);
+
+        //Chamada do método para comparação entre os países
+        System.out.println(paisBrasil.ehPaisIgual(paisEspanha));
     }
 
 }

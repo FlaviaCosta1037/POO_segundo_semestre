@@ -1,5 +1,7 @@
 package lista02_classesObjetos.entidades;
 
+import java.util.Arrays;
+
 //Criado objeto estado com os atributos.
 public class Estado {
     public String nome;
@@ -24,4 +26,8 @@ public class Estado {
         System.out.printf("Estado: %s\n Capital: %s\n Cidades %s Dimensao: %s",this.nome, this.capital, this.cidades, this.dimensao);
     }
 
+    @Override
+    public String toString() {
+        return "Dimensao: " + dimensao;
+    }
 }

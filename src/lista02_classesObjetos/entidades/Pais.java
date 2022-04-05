@@ -34,4 +34,16 @@ public class Pais {
         }
         return maiorEstado;
     }
+
+    public boolean ehPaisIgual(Pais pais){
+        if(this.nomePais.equals(pais.nomePais) && this.capital.equals(pais.capital)){
+            return true;
+        } else{
+            return false;
+        }
+    }
+    @Override
+    public String toString() {
+        return "Nome: " + nomePais + "\nCapital: " + capital;
+    }
 }
