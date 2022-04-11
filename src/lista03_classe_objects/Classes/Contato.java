@@ -5,30 +5,25 @@ import java.util.Scanner;
 public class Contato {
     Scanner in = new Scanner(System.in);
     private String nome;
-    private int idade;
+    private Integer idade;
     private String sexo;
-    private int foneCelular;
+    private Integer foneCel;
     private String eMail;
 
-    public Contato(){
+    public Contato() {
 
     }
 
-    public Contato(Scanner in, String nome, int idade, String sexo, int foneCelular, String eMail) {
-        this.in = in;
+    public Contato(String nome) {
+        this.nome = nome;
+    }
+
+    public Contato(String nome, Integer idade, String sexo, Integer foneCel, String eMail) {
         this.nome = nome;
         this.idade = idade;
         this.sexo = sexo;
-        this.foneCelular = foneCelular;
+        this.foneCel = foneCel;
         this.eMail = eMail;
-    }
-
-    public Scanner getIn() {
-        return in;
-    }
-
-    public void setIn(Scanner in) {
-        this.in = in;
     }
 
     public String getNome() {
@@ -39,11 +34,11 @@ public class Contato {
         this.nome = nome;
     }
 
-    public int getIdade() {
+    public Integer getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(Integer idade) {
         this.idade = idade;
     }
 
@@ -55,12 +50,12 @@ public class Contato {
         this.sexo = sexo;
     }
 
-    public int getFoneCelular() {
-        return foneCelular;
+    public Integer getFoneCel() {
+        return foneCel;
     }
 
-    public void setFoneCelular(int foneCelular) {
-        this.foneCelular = foneCelular;
+    public void setFoneCel(Integer foneCel) {
+        this.foneCel = foneCel;
     }
 
     public String geteMail() {
@@ -71,39 +66,18 @@ public class Contato {
         this.eMail = eMail;
     }
 
-    public void selecionarCadastro(int opcao){
-
-        if(opcao == 1){
-            System.out.printf("Informe o nome do contato: ");
-            String nome = in.nextLine();
-            this.nome = nome;
-
-        } else if(opcao == 2){
-            System.out.println("Informe o nome do contato:");
-            String nome = in.nextLine();
-            this.nome = nome;
-
-            System.out.println("Informe o e-mail: ");
-            String eMail = in.nextLine();
-            this.eMail = eMail;
-
-            System.out.println("Informe o sexo:\nFeminino\nMasculino\nOutros Digite:  ");
-            String sexo = in.nextLine();
-            this.sexo = sexo;
-
-            System.out.println("Informe a idade: ");
-            int idade = in.nextInt();
-            this.idade = idade;
-
-            System.out.println("Informe o numero do celular: ");
-            int foneCelular = in.nextInt();
-            this.foneCelular = foneCelular;
+    public void cadastro(int opcao) {
+        switch (opcao) {
+            case 1:
+                System.out.printf("Cadastro simples\n");
+                break;
+            case 2:
+                System.out.printf("Cadastro completo\n");
+                break;
         }
     }
-
-    public void imprimir(){
-        System.out.printf("Contato: %s\nE-mail: %s\nSexo: %s\nIdade: %d\nFoneCelular: %d\n",
-                this.nome, this.eMail, this.sexo, this.idade, this.foneCelular);
+    public void imprimirSimples(){
+        System.out.println(this.nome);
     }
 
     @Override
@@ -112,7 +86,7 @@ public class Contato {
                 "nome='" + nome + '\'' +
                 ", idade=" + idade +
                 ", sexo='" + sexo + '\'' +
-                ", foneCelular=" + foneCelular +
+                ", foneCel=" + foneCel +
                 ", eMail='" + eMail + '\'' +
                 '}';
     }

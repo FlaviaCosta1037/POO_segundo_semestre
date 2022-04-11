@@ -1,23 +1,20 @@
 package lista03_classe_objects.Classes;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Usuario {
-
     private String nome;
-    private int cpf;
-    private Contato[] contato;
+    private Integer cpf;
+    private Contato[] contatos;
 
-    public Usuario(String nome, int cpf) {
-        this.nome = nome;
-        this.cpf = cpf;
+    public Usuario() {
+
     }
 
-    public Usuario(String nome, int cpf, Contato[] contato) {
+    public Usuario(String nome, Integer cpf, Contato[] contatos) {
         this.nome = nome;
         this.cpf = cpf;
-        this.contato = contato;
+        this.contatos = contatos;
     }
 
     public String getNome() {
@@ -28,39 +25,28 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public Integer getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(Integer cpf) {
         this.cpf = cpf;
     }
 
-    public Contato[] getContato() {
-        return contato;
+    public Contato[] getContatos() {
+        return contatos;
     }
 
-    public void setContato(Contato[] contato) {
-        this.contato = contato;
+    public void setContatos(Contato[] contatos) {
+        this.contatos = contatos;
     }
 
-    public void contatos(){
-        Contato contatos = new Contato();
-        contatos.getNome();
-        contatos.geteMail();
-        contatos.getSexo();
-        contatos.getIdade();
-        contatos.getFoneCelular();
-    }
-    public void imprimir(){
-        System.out.printf("Nome usuário: %s  Cpf: %d ", this.nome, this.cpf);
-    }
     @Override
     public String toString() {
         return "Usuario{" +
                 "nome='" + nome + '\'' +
                 ", cpf=" + cpf +
-                ", contato=" + Arrays.toString(contato) +
+                ", contatos=" + Arrays.toString(contatos) +
                 '}';
     }
 }
