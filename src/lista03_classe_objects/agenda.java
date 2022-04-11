@@ -17,27 +17,19 @@ public class agenda {
         System.out.println("Informe seu CPF: ");
         int cpf = in.nextInt();
 
+        Usuario usuario = new Usuario(nomeUsuario, cpf);
+
         System.out.println("Informe quantos contatos deseja cadastrar: ");
         int qtdContatos = in.nextInt();
+        Contato contatos = new Contato();
 
         System.out.println("1-Cadastro Simples\n2- Cadastro completo\n3- Sair\nDigite: ");
         int opcao = in.nextInt();
-
-        Usuario contato[] = new Usuario[qtdContatos];
-
-        for(int i = 0; i<contato.length;i++) {
-            if (opcao == 1) {
-                Contato.cadSimples(opcao);
-            } else if (opcao == 2) {
-                Contato.cadCompleto(opcao);
-            }else{
-                Contato.sair(opcao);
-            }
-        }
-        Usuario usuario = new Usuario(nomeUsuario, cpf);
         usuario.imprimir();
+        contatos.selecionarCadastro(opcao);
+        contatos.imprimir();
 
-        Contato.cadCompleto(opcao);
+
     }
 
 }

@@ -3,12 +3,16 @@ package lista03_classe_objects.Classes;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class Usuario {
 
-    public String nome;
-    public int cpf;
-    public Contato[] contato = null;
+    private String nome;
+    private int cpf;
+    private Contato[] contato;
+
+    public Usuario(String nome, int cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+    }
 
     public Usuario(String nome, int cpf, Contato[] contato) {
         this.nome = nome;
@@ -16,15 +20,41 @@ public class Usuario {
         this.contato = contato;
     }
 
-    public Usuario (String nome, int cpf){
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
         this.cpf = cpf;
     }
 
-    public void imprimir(){
-        System.out.printf("Nome: %s  CPF: %d  Contatos: %s", this.nome, this.cpf);
+    public Contato[] getContato() {
+        return contato;
     }
 
+    public void setContato(Contato[] contato) {
+        this.contato = contato;
+    }
+
+    public void contatos(){
+        Contato contatos = new Contato();
+        contatos.getNome();
+        contatos.geteMail();
+        contatos.getSexo();
+        contatos.getIdade();
+        contatos.getFoneCelular();
+    }
+    public void imprimir(){
+        System.out.printf("Nome usuário: %s  Cpf: %d ", this.nome, this.cpf);
+    }
     @Override
     public String toString() {
         return "Usuario{" +
