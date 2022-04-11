@@ -14,9 +14,19 @@ public class Contato {
         this.foneCel = foneCel;
         this.eMail = eMail;
     }
-    public Contato(String nome){
+
+    public Contato(String nome) {
         this.nome = nome;
     }
+
+    public void imprimirNomeContato() {
+        System.out.printf("Nome do contato: %s\n", this.nome);
+    }
+
+    public void imprimirCadastroCompleto() {
+        System.out.printf("Nome do contato: %s\nIdade: %d\nSexo: %s\nFone: %d\nE-mail: %s", this.nome, this.idade,this.sexo, this.foneCel, this.eMail);
+    }
+
 
 
     @Override
