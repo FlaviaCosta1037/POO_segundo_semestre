@@ -17,54 +17,24 @@ public class agenda {
         System.out.printf("Informe o seu cpf: ");
         Integer cpf = in.nextInt();
 
+
         System.out.printf("====Agenda de contatos====\n");
-        System.out.printf("1 - Cadastro simples\n2 - Cadastro Completo\nDigite:  ");
+        System.out.printf("1 - Cadastro simples\n2 - Cadastro Completo\n3 - Encerrar programa\nDigite:  ");
         int opcao = in.nextInt();
 
-        Contato escolha = new Contato();
+        Usuario escolha = new Usuario();
         escolha.cadastro(opcao);
 
         System.out.printf("Informe quantos contatos serão cadastrados ");
         int quantidade = in.nextInt();
 
-        Contato contatos[] = new Contato[quantidade];
+        Usuario usuario = new Usuario(nomeUsuario, cpf);
 
-        for(int i = 0; i < contatos.length; i++){
-            if(opcao == 1){
-                System.out.printf("Informe o nome do contato: ");
-                String nome = in.nextLine();
-                in.next();
-                Contato lista = new Contato(nome);
-                lista.imprimirSimples();
+        Contato contatos = new Contato();
+        contatos.interacaoUsuario(quantidade,opcao);
+        contatos.imprimir();
 
-            }else if(opcao == 2) {
-                System.out.printf("Informe o nome do contato: ");
-                String nome = in.nextLine();
-                in.next();
-
-                System.out.printf("Informe a idade: ");
-                int idade = in.nextInt();
-
-                System.out.printf("Informe o sexo do contato: F/M/Outros ");
-                String sexo = in.nextLine();
-                in.next();
-
-                System.out.printf("Informe o fone: ");
-                int fone = in.nextInt();
-
-                System.out.printf("Informe o E-mail do contato: ");
-                String eMail = in.nextLine();
-                in.next();
-
-                Contato lista = new Contato(nome,idade,sexo,fone,eMail);
-
-
-            }
-
-        }
 
     }
 }
-
-
 
