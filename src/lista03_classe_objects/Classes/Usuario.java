@@ -64,6 +64,7 @@ public class Usuario {
         return opcao;
     }
 
+    //Interaçao com o usuário
     public int encerrar(int opcao, int quantidade) {
         for (int i = 0; i < quantidade; i++)
             if (opcao == 1) {
@@ -75,18 +76,10 @@ public class Usuario {
         return opcao;
     }
 
-
-    public void contato(String nome, int idade, String sexo, int fone, String eMail){
-        contatos = new Contato[contatos.length];
-        for(int i = 0; i < contatos.length; i++){
-
-        }
-    }
-
     @Override
     public String toString() {
-        return "Usuario{" +
-                "nome='" + nome + '\'' +
-                ", cpf=" + cpf;
+        return "====Usuario====" +
+                "Nome: " + nome  +
+                "CPF: " + cpf;
     }
 }
