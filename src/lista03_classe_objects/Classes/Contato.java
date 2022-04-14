@@ -1,6 +1,5 @@
 package lista03_classe_objects.Classes;
 
-import java.text.Format;
 import java.util.Scanner;
 
 public class Contato {
@@ -68,26 +67,21 @@ public class Contato {
         this.eMail = eMail;
     }
 
-    public int contar(int quantidade){
-        return quantidade;
+    public int contar(int quantidade) {
+        quantidade = 0;
+        return quantidade += quantidade;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder imprimir = new StringBuilder();
-        int quantidade = 0;
-        quantidade  = contar(quantidade);
-
-        for(int i = 0; i < quantidade; i++){
+    public String toString(){
+        String imprimir = "";
+        for(int i = 0; i < this.nome.length();i++){
             if(this.idade == 0){
-                imprimir.append("Nome do Contato: ").append(getNome());
+                imprimir = String.format("Nome: %s\n",this.nome);
             }else{
-                imprimir.append("Nome do Contato: ").append(getNome()).append("Idade: ").
-                        append(getIdade()).append("Sexo: ").append(getSexo()).append("Fone: ").
-                        append(getFoneCel()).append("E-mail: ").append(geteMail());
+                imprimir = String.format("Nome: %s\n Idade: %d\n Sexo: %s\n Fone: %d\n E-mail: %s\n",
+                        this.nome,this.idade,this.sexo,this.foneCel,this.eMail);
             }
         }
-
-        return imprimir.toString();
+        return imprimir;
     }
 }
