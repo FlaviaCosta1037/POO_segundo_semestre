@@ -9,7 +9,7 @@ public class Contato {
     private String sexo;
     private String foneCel;
     private String eMail;
-    static int DDI = 55;
+    static String DDI = "+55";
 
     //Construtor Padrão
     public Contato() {
@@ -77,8 +77,8 @@ public class Contato {
         if (this.idade == 0) {
             stringContatos = String.format("Nome: %s", this.nome);
         } else {
-            stringContatos = String.format("Nome: %s\nIdade: %d\nSexo: %s\nCelular: %d %s\nEmail: %s", this.nome, this.idade, this.sexo,
-                    DDI + " " + this.foneCel, this.eMail);
+            stringContatos = "Nome: " + this.nome + "\nIdade: " + this.idade + "\nSexo: " + this.sexo + "\nFone: "+ DDI + Utils.formataTelefone(this.foneCel)+
+                    "\nE-mail: " + this.eMail;
         }
         return stringContatos;
     }

@@ -60,7 +60,7 @@ public class Usuario {
             stringContatos += contato;
         }
         //Retorno do usuário, cpf e array de contatos.
-        return "Usuário: " + this.nome + " Cpf: " + this.cpf + "\n===Agenda===\n" + stringContatos;
+        return "Usuário: " + this.nome + " Cpf: " + Utils.formataCpf(this.cpf) + "\n===Agenda===\n" + stringContatos;
 
     }
 }
