@@ -4,75 +4,64 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Usuario {
-    Scanner in = new Scanner(System.in);
-    public String nome;
-    public int cpf;
-    public Contato[] contatos;
+    private String nome;
+    private String cpf;
+    private Contato[] contatos;
 
-    public Usuario(String nome, int cpf, Contato[] contatos) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.contatos = contatos;
-    }
+    public Usuario() {
 
-    public Usuario(String nome, int cpf) {
-        this.nome = nome;
-        this.cpf = cpf;
     }
 
     public Usuario(Contato[] contatos) {
         this.contatos = contatos;
     }
 
-    /*public void escolhaCadastro(int quantidade) {
-        String nome = "", sexo = "", email = "";
-        int idade = 0, fone = 0;
-        if (quantidade == 1) {
-            System.out.println("Informe o nome do contato: ");
-            nome = in.nextLine();
-            Contato contatoNome = new Contato(nome);
-
-        } else if (quantidade == 2) {
-            System.out.println("Informe o nome do contato: ");
-            nome = in.nextLine();
-            System.out.println("Informe o sexo do contato: ");
-            sexo = in.nextLine();
-            System.out.println("Informe o e-mail do contato: ");
-            email = in.nextLine();
-            System.out.println("Informe a idade do contato: ");
-            idade = in.nextInt();
-            System.out.println("Informe o telefone do contato: ");
-            fone = in.nextInt();
-            Contato contatoCompleto = new Contato(nome, idade, sexo, fone, email);
-        }
-
-    }*/
-
-
-    public void informacoes(int quantidade) {
+    public Usuario(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
-        this.contatos = new Contato[quantidade];
     }
 
-    public void continuar() {
-        System.out.println("Deseja continuar cadastrando outros contatos? (1)-Sim\n(2)Não");
-        int opcao = in.nextInt();
-        if (opcao == 1) {
 
-        } else if (opcao == 2) {
-            System.out.println("Programa finalizado!");
-        }
+    public Usuario(String nome, String cpf, Contato[] contatos) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.contatos = contatos;
     }
 
-    public void imprimirUsuario() {
-        System.out.printf("Usuário: %s\nCpf: %d\n", this.nome, this.cpf);
+    public String getNome() {
+        return nome;
     }
 
-    @Override
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Contato[] getContatos() {
+        return contatos;
+    }
+
+    public void setContatos(Contato[] contatos) {
+        this.contatos = contatos;
+    }
+
+    //Métoco para imprimir o objeto com laço for lendo todos os contatos.
     public String toString() {
-        return "Usuario: " +
-                "Nome: " + nome + '\'' +
-                ", CPF: " + cpf;
+        String stringContatos = "";
+
+        for (Contato contato: contatos) {
+            stringContatos += contato;
+        }
+        //Retorno do usuário, cpf e array de contatos.
+        return "Usuário: " + this.nome + " Cpf: " + this.cpf + "\n===Agenda===\n" + stringContatos;
+
     }
 }
+
