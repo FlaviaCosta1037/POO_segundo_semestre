@@ -7,7 +7,7 @@ public class Contato {
     private String nome;
     private int idade;
     private String sexo;
-    private int foneCel;
+    private String foneCel;
     private String eMail;
 
     //Construtor Padrão
@@ -19,7 +19,7 @@ public class Contato {
         this.nome = nome;
     }
 
-    public Contato(String nome, int idade, String sexo, int foneCel, String eMail) {
+    public Contato(String nome, int idade, String sexo, String foneCel, String eMail) {
         this.nome = nome;
         this.idade = idade;
         this.sexo = sexo;
@@ -51,11 +51,11 @@ public class Contato {
         this.sexo = sexo;
     }
 
-    public int getFoneCel() {
+    public String getFoneCel() {
         return this.foneCel;
     }
 
-    public void setFoneCel(int foneCel) {
+    public void setFoneCel(String foneCel) {
         this.foneCel = foneCel;
     }
 
@@ -67,21 +67,16 @@ public class Contato {
         this.eMail = eMail;
     }
 
-    public int contar(int quantidade) {
-        quantidade = 0;
-        return quantidade += quantidade;
-    }
+    //Metodo com estrutura if e else para imprimir cadastro simples e completo.
+    public String toString() {
+        String stringContatos = "";
 
-    public String toString(){
-        String imprimir = "";
-        for(int i = 0; i < this.nome.length();i++){
-            if(this.idade == 0){
-                imprimir = String.format("Nome: %s\n",this.nome);
-            }else{
-                imprimir = String.format("Nome: %s\n Idade: %d\n Sexo: %s\n Fone: %d\n E-mail: %s\n",
-                        this.nome,this.idade,this.sexo,this.foneCel,this.eMail);
-            }
+        if (this.idade == 0) {
+            stringContatos = "\nNome: " + this.nome;
+        } else {
+            stringContatos = "\nNome: " + this.nome + "\nIdade: " + this.idade + "Sexo: "
+                    + this.sexo + "\nFone: " + this.foneCel + "\nE-mail: " + this.eMail + "\n=============";
         }
-        return imprimir;
+        return stringContatos;
     }
 }

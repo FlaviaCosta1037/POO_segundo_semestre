@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Usuario {
     private String nome;
-    private Integer cpf;
+    private String cpf;
     private Contato[] contatos;
 
     public Usuario() {
@@ -15,13 +15,13 @@ public class Usuario {
         this.contatos = contatos;
     }
 
-    public Usuario(String nome, Integer cpf) {
+    public Usuario(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
     }
 
 
-    public Usuario(String nome, Integer cpf, Contato[] contatos) {
+    public Usuario(String nome, String cpf, Contato[] contatos) {
         this.nome = nome;
         this.cpf = cpf;
         this.contatos = contatos;
@@ -35,11 +35,11 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -51,35 +51,15 @@ public class Usuario {
         this.contatos = contatos;
     }
 
-    //Método para escolha do cadastro
-    public int cadastro(int opcao) {
-        switch (opcao) {
-            case 1:
-                System.out.printf("Cadastro simples\n");
-                break;
-            case 2:
-                System.out.printf("Cadastro completo\n");
-                break;
-        }
-        return opcao;
-    }
-
-    //Interaçao com o usuário
-    public int encerrar(int opcao, int quantidade) {
-        for (int i = 0; i < quantidade; i++)
-            if (opcao == 1) {
-                continue;
-            } else if (opcao == 2) {
-                System.out.printf("Programa encerrado!");
-                break;
-            }
-        return opcao;
-    }
-
-    @Override
+    //Métoco para imprimir o objeto com laço for lendo todos os contatos.
     public String toString() {
-        return "====Usuario====" +
-                "Nome: " + nome  +
-                "CPF: " + cpf;
+        String stringContatos = "";
+
+        for (Contato contato: contatos) {
+            stringContatos += contato;
+        }
+        //Retorno do usuário, cpf e array de contatos.
+        return "Usuário: " + this.nome + " Cpf: " + this.cpf + "\n===Agenda===\n" + stringContatos;
+
     }
 }

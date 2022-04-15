@@ -15,74 +15,76 @@ public class agenda {
         System.out.printf("Informe o seu nome: ");
         String nomeUsuario = in.nextLine();
         System.out.printf("Informe o seu cpf: ");
-        Integer cpf = in.nextInt();
+        String cpf = in.next();
 
         System.out.printf("====Agenda de contatos====\n");
         System.out.printf("1 - Cadastro simples\n2 - Cadastro Completo\n3 - Encerrar programa\nDigite:  ");
         int opcao = in.nextInt();
 
-        Usuario escolha = new Usuario();
-        escolha.cadastro(opcao);
+        //Opção para escolher o tipo de cadastro
+        switch (opcao){
+            case 1:
+                System.out.println("Cadastro Simples");
+                break;
+            case 2:
+                System.out.println("Cadastro Completo");
+                break;
+        }
 
+        //Determinar a quantidade de contatos da agenda
         System.out.printf("Informe quantos contatos serão cadastrados ");
         int quantidade = in.nextInt();
 
-        int encerrar = 0;
-        Usuario escolhaEncerrar = new Usuario();
+        String nomeContato, sexo, email, foneCel;
+        int idade;
 
-        Contato contatos = new Contato();
+        //Instanciar o array de contatos
+        Contato contatos[] = new Contato[quantidade];
 
-        Contato qtdContatos = new Contato();
-        qtdContatos.contar(quantidade);
-
-        String nomeContato[] = new String[quantidade];
-        int idade[] = new int[quantidade];
-        String sexo[] = new String[quantidade];
-        int foneCel[] = new int[quantidade];
-        String email[] = new String[quantidade];
-
-        Usuario usuario = new Usuario(nomeUsuario, cpf);
-        System.out.println(usuario);
-
-        for (int i = 0; i < quantidade; i++) {
-            String nome = "", sexoContato = "", eMailContato = "";
-            int idadeContato = 0, foneCelContato = 0;
-
+        //Laço for para receber os dados dos contatos
+        for (int i = 0; i < contatos.length; i++) {
             if (opcao == 1) {
                 System.out.printf("Informe o nome do contato: ");
-                nomeContato[i] = in.next();
-
-                System.out.printf("Deseja finalizar encerrar o cadastro? 1 - Não  2 - Sim ");
-                encerrar = in.nextInt();
-                contatos = new Contato(nomeContato[i]);
+                nomeContato = in.next();
+                contatos[i] = new Contato(nomeContato);
 
             } else if (opcao == 2) {
                 System.out.printf("Informe o nome do contato: ");
-                nomeContato[i] = in.next();
-                nome = nomeContato[i];
+                nomeContato = in.next();
 
                 System.out.printf("Informe a idade do contato: ");
-                idade[i] = in.nextInt();
+                idade = in.nextInt();
 
                 System.out.printf("Informe o sexo do contato: ");
-                sexo[i] = in.next();
+                sexo = in.next();
 
                 System.out.printf("Informe a Fone do contato: ");
-                foneCel[i] = in.nextInt();
+                foneCel= in.next();
 
                 System.out.printf("Informe o e-mail do contato: ");
-                email[i] = in.next();
+                email = in.next();
 
-                System.out.printf("Deseja finalizar encerrar o cadastro? 1 - Não  2 - Sim ");
-                encerrar = in.nextInt();
-                contatos = new Contato(nomeContato[i],idade[i],sexo[i],foneCel[i],email[i]);
+                contatos[i] = new Contato(nomeContato,idade,sexo,foneCel,email);
 
             } else if (opcao == 3) {
                 System.out.printf("Programa Finalizado!");
                 break;
+            } else {
+                System.out.println("Opção incorreta! ");
             }
-            escolhaEncerrar.encerrar(encerrar, quantidade);
+
+            //Estrutura para definir se continua ou para o cadastro. (Se o contador for diferente da quantidade definida menos 1
+            if(i != quantidade - 1){
+                System.out.printf("Deseja finalizar encerrar o cadastro? 1 - Não  2 - Sim 3 - Encerrar cadastro ");
+                int escolha = in.nextInt();
+
+            }else{
+                System.out.println("Cadastro Finalizado.");
+            }
         }
+
+        Usuario usuario = new Usuario(nomeUsuario, cpf,contatos);
+        System.out.println(usuario);
     }
 }
 
