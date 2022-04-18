@@ -3,11 +3,10 @@ package lista05;
 import lista05.Classes.Candidato;
 import lista05.Classes.Eleitor;
 
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class sistemaEleitoral {
+public class programaSistemaEleitoral {
 
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
