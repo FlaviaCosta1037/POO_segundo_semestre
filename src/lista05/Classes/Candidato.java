@@ -1,5 +1,7 @@
 package lista05.Classes;
 
+import jdk.jshell.execution.Util;
+
 public class Candidato extends Pessoa {
     private String partido;
     private int codigoCandidato;
@@ -16,6 +18,9 @@ public class Candidato extends Pessoa {
         super(nome);
         this.partido = partido;
         this.codigoCandidato = codigoCandidato;
+    }
+    public Candidato(String cpf) {
+        super(cpf);
     }
 
     public String getPartido() {
@@ -38,8 +43,8 @@ public class Candidato extends Pessoa {
         return qtdVotos;
     }
 
-    public int somarVotos(int soma){
-        return soma += qtdVotos;
+    public static int somarVotos(int soma){
+        return soma = soma + 1;
     }
     public static Double percentual(Double totalCandidato, int soma){
         Double resultado = (totalCandidato / soma) * 100;
@@ -51,14 +56,11 @@ public class Candidato extends Pessoa {
                 getNome(),this.partido,this.codigoCandidato);
         System.out.println(candidato);
     }
-
     public String toString(){
         String candidato = "";
-        for(int i = 0; i < this.qtdVotos; i++) {
-            candidato = String.format("Nome: %s\nCpf: %s\nPartido: %s\nCodigo do Candidato: %d\nTotal dos Votos: %d",
-                    getNome(), Utils.formataCpf(getCpf()),this.partido,this.codigoCandidato,this.qtdVotos);
+            candidato = "Nome: " + super.getNome() + "\nCpf: " + super.getCpf() +
+                    "\nPartido: " + this.partido + "\nCodigo do Candidato: " + this.codigoCandidato;
 
-        }
         return candidato;
     }
 }

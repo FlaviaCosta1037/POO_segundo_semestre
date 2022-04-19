@@ -2,7 +2,7 @@ package lista05.Classes;
 
 public class Eleitor extends Pessoa {
     private int numeroTitulo;
-    static int qtdEleitores = 2;
+    static int qtdEleitores = 3;
 
     public Eleitor() {
 
@@ -23,8 +23,9 @@ public class Eleitor extends Pessoa {
 
     public String toString(){
         String eleitores = "";
-        eleitores = String.format("Nome: %s\nCpf: %s\nTitulo: %d\n",getNome(), Utils.formataCpf(getCpf()),this.numeroTitulo);
+        eleitores = super.toString() + String.format("Nome: %s\nCpf: %s\nTitulo: %d\n",getNome(), Utils.formataCpf(getCpf()),this.numeroTitulo);
         return eleitores;
+
     }
 
 }
