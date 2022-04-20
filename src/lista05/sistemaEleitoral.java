@@ -14,8 +14,8 @@ public class sistemaEleitoral {
         Scanner in = new Scanner(System.in);
 
         Candidato candidato[] = new Candidato[2];
-        candidato[0] = new Candidato("Peuzin da sacola", "Partido do Povo", 13);
-        candidato[1] = new Candidato("Rita Desgramada", "Partido da Cerveja gelada", 20);
+        candidato[0] = new Candidato("Peuzin da sacola","12345678945", "Partido do Povo", 13);
+        candidato[1] = new Candidato("Rita Desgramada","96325874123", "Partido da Cerveja gelada", 20);
 
         System.out.println("=====Sistema de votação=====");
         System.out.println("========Candidatos==========\n");
@@ -27,10 +27,8 @@ public class sistemaEleitoral {
         String nomeEleitor, numeroCpf;
         Candidato vencedor;
         int numeroTitulo = 0, tituloanterior = 0, numeroCandidato;
-        Double percentual1 = 0.0;
-        Double percentual2 = 0.0;
-        int somarVotos1 = 0;
-        int somarVotos2 = 0;
+
+
 
         System.out.println("====Sistema de Cadastro de Eleitor====");
         for (int i = 0; i < eleitores.length; i++) {
@@ -62,24 +60,31 @@ public class sistemaEleitoral {
                 numeroCandidato = in.nextInt();
             }
             if (numeroCandidato == 13) {
-                somarVotos1 = Candidato.somarVotos(i);
-                percentual1 = Candidato.percentual(Double.valueOf(somarVotos1), eleitores.length);
+                candidato[0].incrementarVotos();
             }
             if (numeroCandidato == 20) {
-                somarVotos2 = eleitores.length - somarVotos1;
-                percentual2 = Candidato.percentual(Double.valueOf(somarVotos2), eleitores.length);
+                candidato[1].incrementarVotos();
             }
 
         }
-        if (somarVotos1 > somarVotos2) {
+
+        int totalVotos1 = candidato[0].getQtdVotos();
+        int totalVotos2 = candidato[1].getQtdVotos();
+
+        int total = totalVotos1 + totalVotos2;
+
+        double percentual1 = ((double) totalVotos1 / total) * 100;
+        double percentual2 = ((double) totalVotos2 / total) * 100;
+
+        if (totalVotos1 > totalVotos2) {
             vencedor = candidato[0];
             System.out.println(vencedor);
-            System.out.printf("Quantidade de votos: %d\nPercentual: %.2f",somarVotos1,percentual1);
-        } else if(somarVotos1 < somarVotos2) {
+            System.out.printf("Quantidade de votos: %d\nPercentual: %.2f", totalVotos1, percentual1);
+        } else if (totalVotos2 < totalVotos1) {
             vencedor = candidato[1];
             System.out.println(vencedor);
-            System.out.printf("Quantidade de votos: %d\nPercentual: %.2f",somarVotos2,percentual2);
-        }else {
+            System.out.printf("Quantidade de votos: %d\nPercentual: %.2f", totalVotos2, percentual2);
+        } else {
             System.out.println("Empate Técnico!");
         }
     }

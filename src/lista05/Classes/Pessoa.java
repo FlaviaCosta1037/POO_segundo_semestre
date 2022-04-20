@@ -4,11 +4,11 @@ public class Pessoa {
     private String nome;
     private String cpf;
 
-    public Pessoa() {
+    Pessoa() {
 
     }
 
-    public Pessoa(String nome, String cpf) {
+    Pessoa(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
     }

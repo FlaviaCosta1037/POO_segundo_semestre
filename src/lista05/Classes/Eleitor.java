@@ -2,7 +2,6 @@ package lista05.Classes;
 
 public class Eleitor extends Pessoa {
     private int numeroTitulo;
-    static int qtdEleitores = 3;
 
     public Eleitor() {
 

@@ -5,13 +5,12 @@ import jdk.jshell.execution.Util;
 public class Candidato extends Pessoa {
     private String partido;
     private int codigoCandidato;
-    private int qtdVotos;
+    private int qtdVotos = 0;
 
-    public Candidato(String nome, String cpf, String partido, int codigoCandidato, int qtdVotos) {
+    public Candidato(String nome, String cpf, String partido, int codigoCandidato) {
         super(nome, cpf);
         this.partido = partido;
         this.codigoCandidato = codigoCandidato;
-        this.qtdVotos = qtdVotos;
     }
 
     public Candidato(String nome, String partido, int codigoCandidato) {
@@ -28,7 +27,7 @@ public class Candidato extends Pessoa {
     }
 
     public void setPartido(String partido) {
-        this.partido = partido;
+        this.setPartido(partido);
     }
 
     public int getCodigoCandidato() {
@@ -36,16 +35,17 @@ public class Candidato extends Pessoa {
     }
 
     public void setCodigoCandidato(int codigoCandidato) {
-        this.codigoCandidato = codigoCandidato;
+        this.setCodigoCandidato(codigoCandidato);
     }
 
     public int getQtdVotos() {
         return qtdVotos;
     }
 
-    public static int somarVotos(int soma){
-        return soma = soma + 1;
+    public void incrementarVotos(){
+        this.qtdVotos++;
     }
+
     public static Double percentual(Double totalCandidato, int soma){
         Double resultado = (totalCandidato / soma) * 100;
         return resultado;
@@ -58,7 +58,7 @@ public class Candidato extends Pessoa {
     }
     public String toString(){
         String candidato = "";
-            candidato = "Nome: " + super.getNome() + "\nCpf: " + super.getCpf() +
+            candidato = "Nome: " + super.getNome() + "\nCpf: " + Utils.formataCpf(super.getCpf()) +
                     "\nPartido: " + this.partido + "\nCodigo do Candidato: " + this.codigoCandidato;
 
         return candidato;
