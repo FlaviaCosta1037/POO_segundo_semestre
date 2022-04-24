@@ -1,4 +1,6 @@
-package revisao_prova.Classes;
+package revisao_prova;
+
+import revisao_prova.Classes.Pessoa;
 
 import java.util.Locale;
 
