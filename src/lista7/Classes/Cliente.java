@@ -1,4 +1,4 @@
-package lista07.Classes;
+package lista7.Classes;
 
 public class Cliente {
     private String nome;

@@ -1,16 +1,13 @@
-package lista07.Classes;
+package lista7.Classes;
 
 public abstract class ContaAbstrata {
     private String numeroConta;
-    private double saldo;
+    private double saldo = 0.0;
     private Cliente cliente;
 
     abstract double obterLimite();
 
-    public ContaAbstrata(String numeroConta, double saldo, Cliente cliente) {
-        this.numeroConta = numeroConta;
-        this.saldo = saldo;
-        this.cliente = cliente;
+    public ContaAbstrata() {
     }
 
     public String getNumeroConta() {
@@ -45,4 +42,12 @@ public abstract class ContaAbstrata {
         return this.saldo -= valor;
     }
 
+    @Override
+    public String toString() {
+        return "ContaAbstrata{" +
+                "numeroConta='" + numeroConta + '\'' +
+                ", saldo=" + saldo +
+                ", cliente=" + cliente +
+                '}';
+    }
 }
