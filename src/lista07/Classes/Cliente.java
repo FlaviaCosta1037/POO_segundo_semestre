@@ -1,4 +1,4 @@
-package lista7.Classes;
+package lista07.Classes;
 
 public class Cliente {
     private String nome;
@@ -23,5 +23,13 @@ public class Cliente {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + getNome() + '\'' +
+                ", cpf='" + getCpf() + '\'' +
+                '}';
     }
 }

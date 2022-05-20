@@ -1,4 +1,4 @@
-package lista7.Classes;
+package lista07.Classes;
 
 public abstract class ContaAbstrata {
     private String numeroConta;
@@ -11,7 +11,7 @@ public abstract class ContaAbstrata {
     }
 
     public String getNumeroConta() {
-        return numeroConta;
+        return this.numeroConta;
     }
 
     public void setNumeroConta(String numeroConta) {
@@ -19,7 +19,7 @@ public abstract class ContaAbstrata {
     }
 
     public double getSaldo() {
-        return saldo;
+        return this.saldo;
     }
 
     public void setSaldo(double saldo) {
@@ -27,7 +27,7 @@ public abstract class ContaAbstrata {
     }
 
     public Cliente getCliente() {
-        return cliente;
+        return this.cliente;
     }
 
     public void setCliente(Cliente cliente) {
@@ -45,9 +45,9 @@ public abstract class ContaAbstrata {
     @Override
     public String toString() {
         return "ContaAbstrata{" +
-                "numeroConta='" + numeroConta + '\'' +
-                ", saldo=" + saldo +
-                ", cliente=" + cliente +
+                "numeroConta='" + getNumeroConta()+ '\'' +
+                ", saldo=" + getSaldo() +
+                ", cliente=" + getCliente() +
                 '}';
     }
 }

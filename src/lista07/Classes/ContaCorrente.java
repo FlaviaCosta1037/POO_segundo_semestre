@@ -1,4 +1,4 @@
-package lista7.Classes;
+package lista07.Classes;
 
 public class ContaCorrente extends ContaAbstrata{
     private double limiteChequeEsp = 1000;

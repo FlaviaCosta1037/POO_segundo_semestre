@@ -1,4 +1,4 @@
-package lista7.Classes;
+package lista07.Classes;
 
 public class Poupanca extends ContaAbstrata{
     public double saldo;
