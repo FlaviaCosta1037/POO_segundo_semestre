@@ -1,14 +1,15 @@
 package lista07.Classes;
 
 public class ContaCorrente extends ContaAbstrata{
-    private double limiteChequeEsp = 1000;
+    private double limiteChequeEsp;
 
-    public ContaCorrente() {
-        this.limiteChequeEsp = limiteChequeEsp;
+    public ContaCorrente(String numeroConta, double saldo, Cliente cliente) {
+        super(numeroConta, saldo, cliente);
+        this.limiteChequeEsp = 1000;
     }
 
     @Override
     public double obterLimite() {
-        return getSaldo() + limiteChequeEsp;
+        return limiteChequeEsp + getSaldo();
     }
 }
