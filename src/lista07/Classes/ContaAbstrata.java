@@ -2,13 +2,16 @@ package lista07.Classes;
 
 public abstract class ContaAbstrata {
     private String numeroConta;
-    private double saldo = 0.0;
+    private double saldo;
     private Cliente cliente;
 
-    abstract double obterLimite();
-
-    public ContaAbstrata() {
+    public ContaAbstrata(String numeroConta, double saldo, Cliente cliente) {
+        this.numeroConta = numeroConta;
+        this.saldo = saldo;
+        this.cliente = cliente;
     }
+
+    abstract double obterLimite();
 
     public String getNumeroConta() {
         return this.numeroConta;
@@ -44,10 +47,6 @@ public abstract class ContaAbstrata {
 
     @Override
     public String toString() {
-        return "ContaAbstrata{" +
-                "numeroConta='" + getNumeroConta()+ '\'' +
-                ", saldo=" + getSaldo() +
-                ", cliente=" + getCliente() +
-                '}';
+        return "==========Cliente===========" + getCliente() + "\n\n==========Conta=========== \nNúmero: \n" + getNumeroConta() + "\n==========Saldo=========== \nR$ " + getSaldo();
     }
 }
