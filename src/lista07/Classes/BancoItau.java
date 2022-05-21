@@ -4,33 +4,28 @@ public class BancoItau implements IBancoGeral {
 
     @Override
     public ContaAbstrata abrirConta(Cliente c, String numeroConta, double saldoInicial, String tipo) {
-        ContaAbstrata conta = null;
-        ContaAbstrata contaC = new ContaCorrente();
-        contaC.getCliente();
-        ContaAbstrata contaP = new Poupanca();
-        contaP.getCliente();
 
-        if (conta == contaC){
-            tipo = "Conta Corrente!";
-            conta = contaC;
-            return conta;
-        } else {
-            tipo = "Conta poupança!";
-            conta = contaP;
-            return conta;
+        if(tipo.equals("corrente")) {
+            return new ContaCorrente(numeroConta,saldoInicial,c);
+        }else {
+            return new Poupanca(numeroConta,saldoInicial,c);
         }
-    }
 
+    }
     @Override
     public boolean depositar(ContaAbstrata c, double valor) {
-        return this.depositar(c,valor);
+        c.depositar(valor);
+        return true;
     }
 
     @Override
     public boolean sacar(ContaAbstrata c, double valor) {
-        return this.sacar(c, valor);
+        if (c.obterLimite() < valor){
+            System.out.println("Saldo indisponível na conta!\nO saldo atual é R$ " + c.getSaldo());
+        }
+            c.sacar(valor);
+        return true;
     }
-
 }
 
 
