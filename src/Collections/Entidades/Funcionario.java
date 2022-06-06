@@ -1,7 +1,5 @@
 package Collections.Entidades;
 
-import Collections.Servicos.Cadastrar;
-
 public class Funcionario {
     private String nome;
     private Dependente dependente;
@@ -12,7 +10,7 @@ public class Funcionario {
 
     public Funcionario(String nome, Dependente dependente) {
         this.nome = nome;
-        this.dependente = dependente;
+        this.dependente = new Dependente(dependente.getNome(),dependente.getIdade());
     }
 
     public Funcionario() {
@@ -36,9 +34,14 @@ public class Funcionario {
     }
 
     public void addDependente(Dependente e){
-        e = new Dependente(getNome(), e.getIdade());
-        e.getNome();
-        e.getIdade();
+        e = new Dependente(e.getNome(), e.getIdade());
+    }
+    public String quantidadeDependente(String nome, int qtd){
+        if(qtd == 0){
+            return (this.nome + " não possui dependente");
+        }else{
+            return this.nome + " " + qtd + " dependente(s)";
+        }
     }
 
     @Override

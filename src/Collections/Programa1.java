@@ -14,37 +14,51 @@ public class Programa1 {
         Locale.setDefault(Locale.US);
         Scanner in = new Scanner(System.in);
 
-        List<Funcionario> cadastroFuncionario = new ArrayList<>();
-        List<Dependente> listaDependentes = new ArrayList<>();
-
-        Funcionario funcionario = new Funcionario("Roberto");
-        cadastroFuncionario.add(funcionario);
-        Dependente dependente = new Dependente("Beatriz", 2);
-        listaDependentes.add(dependente);
-
-        funcionario = new Funcionario("Rafaela");
-        cadastroFuncionario.add(funcionario);
-        dependente = new Dependente("Olivia", 6);
-        listaDependentes.add(dependente);
-
-        funcionario = new Funcionario("Reinaldo");
-        cadastroFuncionario.add(funcionario);
-        dependente = new Dependente("Duda", 9);
-        listaDependentes.add(dependente);
+        List<Empresa> cadastroGeral = new ArrayList<>();
+        List<String> cadGeral = new ArrayList<>();
 
         Empresa empresa = new Empresa();
 
-        for (Funcionario listaF : cadastroFuncionario) {
-            empresa.realizarCadastro(listaF);
-            for (Dependente listaD : listaDependentes) {
-                funcionario.addDependente(listaD);
+        System.out.println("Quantidade de funcionários: ");
+        int qtd = in.nextInt();
+        String nomeF = "", nomeD = "";
+        Integer idade = 0;
+        int []idades = {};
+        int qtdDependente = 0;
+
+        Funcionario funcionario = new Funcionario(nomeF);
+        Dependente dependente = new Dependente(nomeD, idade);
+
+        for (int i = 1; i <= qtd; i++) {
+            System.out.println("Funcionário: " + i);
+            nomeF = in.next();
+            funcionario = new Funcionario(nomeF);
+
+            System.out.println("Quantos dependentes? ");
+            qtdDependente = in.nextInt();
+
+            for (int j = 0; j < qtdDependente; j++) {
+                if (qtdDependente == 0) {
+                    System.out.println("Funcionário não possue dependente! ");
+                } else {
+                    System.out.println("Dependente: ");
+                    nomeD = in.next();
+                    System.out.println("Idade Dependente: ");
+                    idades[j] = in.nextInt();
+                    dependente = new Dependente(nomeD, idade);
+
+                }
             }
+            empresa.realizarCadastro(funcionario);
+            funcionario.addDependente(dependente);
+            cadGeral.add(funcionario.quantidadeDependente(nomeF, qtdDependente));
 
-            System.out.println(listaF);
         }
-        System.out.println(listaDependentes);
+        for (String cadastro : cadGeral) {
+            System.out.println(cadastro);
+        }
+        for(int maiorIdade : idades){
 
-        //Ajustar codigo
-
+        }
     }
 }

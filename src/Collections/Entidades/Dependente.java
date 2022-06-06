@@ -1,7 +1,7 @@
 package Collections.Entidades;
 
 public class Dependente extends Funcionario {
-    private int idade;
+    private Integer idade;
 
     public Dependente(String nome) {
         super(nome);
@@ -20,8 +20,13 @@ public class Dependente extends Funcionario {
         this.idade = idade;
     }
 
-    @Override
-    public String toString() {
-        return "\nDependente: " + getNome() + "\nIdade: " + getIdade();
+    public void dependenteMaisVelho(int[] idades){
+        int maior = 0;
+        for(int idade: idades){
+            if(idade > maior){
+                maior = idade;
+            }
+        }
+        System.out.println("A maior idade é: " + maior);
     }
 }
