@@ -1,5 +1,8 @@
 package Collections.Entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Dependente extends Funcionario {
     private Integer idade;
 
@@ -20,13 +23,16 @@ public class Dependente extends Funcionario {
         this.idade = idade;
     }
 
-    public void dependenteMaisVelho(int[] idades){
-        int maior = 0;
-        for(int idade: idades){
-            if(idade > maior){
-                maior = idade;
+    //Método para informar o dependente cadastrado mais velho.
+    public void dependenteMaisVelho(int idade){
+        Integer maiorIdade = 0;
+        List<Integer> listaIdades = new ArrayList<>();
+        listaIdades.add(idade);
+        for(int idades: listaIdades){
+            if(idades > maiorIdade){
+                maiorIdade = idades;
             }
         }
-        System.out.println("A maior idade é: " + maior);
+        System.out.println("Dependente com maior idade: " + getNome() + " " + maiorIdade + " anos.");
     }
 }

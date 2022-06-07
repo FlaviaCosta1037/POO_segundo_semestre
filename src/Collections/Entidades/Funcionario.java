@@ -12,11 +12,9 @@ public class Funcionario {
         this.nome = nome;
         this.dependente = new Dependente(dependente.getNome(),dependente.getIdade());
     }
-
+    //Construtor Padrão
     public Funcionario() {
-
     }
-
     public String getNome() {
         return nome;
     }
@@ -36,6 +34,7 @@ public class Funcionario {
     public void addDependente(Dependente e){
         e = new Dependente(e.getNome(), e.getIdade());
     }
+    //Método para calcular a quantidade de dependentes cadastrados.
     public String quantidadeDependente(String nome, int qtd){
         if(qtd == 0){
             return (this.nome + " não possui dependente");
