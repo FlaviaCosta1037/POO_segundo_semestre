@@ -1,6 +1,7 @@
 package interfacesOrdenacao;
 
-import java.util.Comparator;
+import interfacesOrdenacao.Entidades.Pessoa;
+
 import java.util.Set;
 import java.util.TreeSet;
 

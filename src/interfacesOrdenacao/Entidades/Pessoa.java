@@ -1,4 +1,4 @@
-package interfacesOrdenacao;
+package interfacesOrdenacao.Entidades;
 
 public class Pessoa implements Comparable<Pessoa> {
     private String nome;
